@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chief LA Dashboard</title>
+  <!-- Use Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Import Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'chief-purple': {
+              100: '#f5f3ff',
+              500: '#8b5cf6',
+              600: '#7c3aed'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwind">
+    @layer components {
+      .sidebar-link {
+        @apply flex items-center px-4 py-3 text-white hover:bg-gray-900 transition-all;
+      }
+      .sidebar-link-active {
+        @apply flex items-center px-4 py-3 text-purple-500 bg-gray-900;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="flex flex-col md:flex-row">
+    <!-- Mobile Navigation Bar (visible only on small screens) -->
+    <div class="md:hidden bg-black text-white p-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold">Chief LA</h1>
+      <button id="mobile-menu-button" class="text-white">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    </div>
+
+    <!-- Sidebar (hidden on mobile by default) -->
+    <div id="sidebar" class="hidden md:flex w-full md:w-64 bg-black text-white flex-col justify-between md:h-screen">
+      <div>
+        <div class="p-4 mb-2">
+          <h1 class="text-xl font-bold">Chief LA</h1>
+        </div>
+        <div class="py-2">
+          <!-- Active dashboard link with purple text and icon -->
+          <a href="#" class="flex items-center px-4 py-3 bg-purple-800 text-white">
+            <span class="w-8 h-8 flex items-center justify-center bg-purple-600 rounded-md mr-3">
+              <i class="fas fa-home text-white"></i>
+            </span>
+            <span>Dashboard</span>
+          </a>
+          <!-- Other sidebar links -->
+          <a href="#" class="sidebar-link">
+            <span class="w-8 h-8 flex items-center justify-center mr-3">
+              <i class="fas fa-exchange-alt"></i>
+            </span>
+            <span>Transaction</span>
+          </a>
+          <a href="#" class="sidebar-link">
+            <span class="w-8 h-8 flex items-center justify-center mr-3">
+              <i class="fas fa-bell"></i>
+            </span>
+            <span>Notifications</span>
+          </a>
+          <a href="#" class="sidebar-link">
+            <span class="w-8 h-8 flex items-center justify-center mr-3">
+              <i class="fas fa-headset"></i>
+            </span>
+            <span>Support</span>
+          </a>
+          <a href="#" class="sidebar-link">
+            <span class="w-8 h-8 flex items-center justify-center mr-3">
+              <i class="fas fa-cog"></i>
+            </span>
+            <span>Settings</span>
+          </a>
+        </div>
+      </div>
+      <div class="p-4">
+        <a href="#" class="sidebar-link">
+          <span class="w-8 h-8 flex items-center justify-center mr-3">
+            <i class="fas fa-sign-out-alt"></i>
+          </span>
+          <span>Log out</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col relative bg-purple-100 bg-opacity-50">
+      <!-- Improved Top Navigation Bar -->
+      <div class="bg-white shadow px-4 py-3 flex justify-between items-center">
+        <!-- Logo on the left -->
+        <div class="flex items-center">
+          <h1 class="text-2xl font-bold mr-10"></h1>
+          
+          <!-- Navigation links with proper spacing -->
+          <div class="hidden md:flex space-x-8">
+            <a href="#" class="text-black font-medium">Home</a>
+            <a href="#" class="text-black font-medium">About us</a>
+            <a href="#" class="text-black font-medium">Services</a>
+            <a href="#" class="text-black font-medium">Contact Us</a>
+          </div>
+        </div>
+        
+        <!-- Profile and notification section -->
+        <div class="flex items-center space-x-6">
+          <!-- Notification bell with indicator -->
+          <button class="text-gray-600 relative">
+            <i class="fas fa-bell text-lg"></i>
+            <span class="absolute -top-1 -right-1 bg-red-500 rounded-full w-2 h-2"></span>
+          </button>
+          
+          <!-- User profile with image and name -->
+          <div class="flex items-center space-x-3">
+            <img src="https://s3-alpha-sig.figma.com/img/46db/a90c/9e079416f760c0281d83276faaabe0c3?Expires=1744588800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=LUOcb2VgKv2TykcKL2wtUEs7AM8j~hc0pBeFdkp14qfGdxwo1dIAVucHtWBP-w3TqdkCNwpEFrQLvZtiNeRXIxxggwtD-BpteS-k5gEcegD9wHTgD2k7Yy7XMdtjL6anDhE8Rx7qGR~5pOAUhULzKuFh1BSOHBVDnTSU777~8u8AE~2lCMFf9EW1WBAy-j5SPEzygC0K3O4CxQQ-fofU7c3tlf7qPu05GmEFE1g~VlqyIbvibJAOAxIP8O-RA5JncMqZiVjktzMXqpk0N-EKi99ev4tZ5026JYzIcYn-xqiTvZyKFTgtT0vFh6nScDZfjgHMkdqIZ4eQmzBe82Nwqw__" alt="Profile" class="w-10 h-10 rounded-full border-2 border-purple-600">
+            <span class="text-purple-600 font-medium text-lg">Kunle Ajayi</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dashboard Content -->
+      <div class="p-4 md:p-6 flex-1">
+        <h2 class="text-xl md:text-2xl font-semibold mb-4">Dashboard</h2>
+        
+        <!-- Reviews & Feedback Button - repositioned on mobile -->
+        <div class="mb-4 md:hidden flex justify-end">
+          <button class="border border-purple-500 text-purple-500 px-3 py-1 text-sm rounded-full">
+            Reviews & Feedback
+          </button>
+        </div>
+        
+        <!-- Quick Actions Row -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 mb-4 md:mb-6">
+          <div class="bg-black text-white p-3 md:p-4 rounded shadow">
+            <h3 class="text-base md:text-lg font-medium">Loans Available</h3>
+          </div>
+          <div class="bg-black text-white p-3 md:p-4 rounded shadow">
+            <h3 class="text-base md:text-lg font-medium">Repayment Options</h3>
+          </div>
+          <div class="bg-black text-white p-3 md:p-4 rounded shadow">
+            <h3 class="text-base md:text-lg font-medium">percentage Calculator</h3>
+          </div>
+        </div>
+        
+        <!-- Main Actions Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-6">
+          <!-- Request Loan Card -->
+          <div class="bg-black text-white p-6 md:p-8 rounded-lg shadow-md flex items-center justify-center h-32 md:h-40">
+            <h3 class="text-lg md:text-xl font-bold text-center">REQUEST LOAN</h3>
+          </div>
+          
+          <!-- Repayment Plan Card -->
+          <div class="bg-black text-white p-6 md:p-8 rounded-lg shadow-md flex flex-col items-center justify-center h-32 md:h-40">
+            <h3 class="text-lg md:text-xl font-bold text-center">CHOOSE A</h3>
+            <h3 class="text-lg md:text-xl font-bold text-center">REPAYMENT</h3>
+            <h3 class="text-lg md:text-xl font-bold text-center">PLAN</h3>
+          </div>
+          
+          <!-- Latest Update Card -->
+          <div class="bg-black text-white p-4 md:p-6 rounded-lg shadow-md h-32 md:h-40 flex flex-col">
+            <h3 class="text-base md:text-lg font-bold mb-1 md:mb-2">Latest Update</h3>
+            <div class="space-y-1 md:space-y-2 overflow-y-auto flex-grow text-xs">
+              <p class="text-gray-300">Lorem ipsum dolor sit amet consectetur adipisic diam pretium sem posuere risus.</p>
+              <p class="text-gray-300">Lorem ipsum dolor sit amet consectetur adipisic diam pretium sem posuere risus.</p>
+              <p class="text-gray-300 hidden md:block">Lorem ipsum dolor sit amet consectetur adipisic diam pretium sem posuere risus.</p>
+              <p class="text-gray-300 hidden md:block">Lorem ipsum dolor sit amet consectetur adipisic diam pretium sem posuere risus.</p>
+            </div>
+            <div class="mt-1 md:mt-2 flex justify-between items-center">
+              <div class="ml-auto flex items-center space-x-2">
+                <button class="bg-purple-500 text-white px-2 md:px-3 py-1 rounded text-xs">CHAT NOW</button>
+                <div class="bg-purple-500 w-5 h-5 md:w-6 md:h-6 rounded-full flex items-center justify-center">
+                  <i class="fas fa-comment-dots text-white text-xs"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Loan Application Status Bar -->
+        <div class="flex justify-center">
+          <div class="bg-black text-white p-2 md:p-3 rounded shadow w-full max-w-md text-center">
+            <h3 class="text-base md:text-lg font-medium">Loan application status</h3>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Reviews & Feedback Button (desktop position) -->
+      <div class="absolute top-24 right-6 hidden md:block">
+        <button class="border border-purple-500 text-purple-500 px-4 py-2 rounded-full">
+          Reviews & Feedback
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript for mobile menu toggle -->
+  <script src="./main.js"></script>
+</body>
+</html>
